@@ -1,0 +1,126 @@
+{
+	"name": "masiwei-chime",
+	"displayName": "Masiwei-Chime",
+	"description": "马思唯整点报时",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:masiwei-chime.chime",
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "masiwei-chime.chime",
+				"title": "Give The Correct Time"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "马思唯整点报时",
+			"properties": {
+				"msw.name": {
+					"type": "string",
+					"default": "我是马思唯",
+					"description": "报时人名称"
+				},
+				"msw.timeFormat": {
+					"type": "string",
+					"default": "A hh:mm",
+					"description": "报时时间格式"
+				},
+				"msw.timing": {
+					"type": "string",
+					"default": "clock",
+					"description": "报时时机：整点/随机"
+				},
+				"msw.autoSpeech": {
+					"type": "boolean",
+					"default": false,
+					"description": "是否自动语音播报"
+				},
+				"msw.extra": {
+					"type": "object",
+					"default": {
+						"before": "",
+						"after": ""
+					},
+					"description": "报时模板追加首部和尾部增加文字"
+				},
+				"msw.customTemplateArray": {
+					"type": "array",
+					"default": [],
+					"description": "自定义模板"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"commit": "git add . && git-cz",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"lint-staged": "lint-staged",
+		"release": "standard-version",
+		"test": "node ./out/__test__/runTest.js"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-conventional-changelog"
+		}
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+			"pre-commit": "npm run lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": [
+			"prettier --write"
+		],
+		"*.ts": [
+			"prettier --parser=typescript --write"
+		]
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^11.0.0",
+		"@commitlint/config-conventional": "^11.0.0",
+		"@types/cron": "^1.7.2",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"@types/random": "^2.1.1",
+		"@types/vscode": "^1.51.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"babel-eslint": "^10.1.0",
+		"commitizen": "^4.2.2",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^7.9.0",
+		"eslint-config-prettier": "^6.15.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"glob": "^7.1.6",
+		"husky": "^4.3.0",
+		"lint-staged": "^10.5.1",
+		"mocha": "^8.1.3",
+		"prettier": "^2.1.2",
+		"standard-version": "^9.0.0",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"clipboardy": "^2.3.0",
+		"cron": "^1.8.2",
+		"dayjs": "^1.9.6",
+		"random": "^2.2.0"
+	}
+}

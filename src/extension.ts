@@ -1,0 +1,32 @@
+// The module 'vscode' contains the VS Code extensibility API
+// Import the module and reference it with the alias vscode in your code below
+import "dayjs/locale/zh-cn";
+import dayjs from "dayjs";
+import vscode from "vscode";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+
+import { createScheduler } from "./utils";
+import { createNotice } from "./components/notice";
+
+dayjs.locale("zh-cn");
+dayjs.extend(localizedFormat);
+
+export function activate(context: vscode.ExtensionContext): void {
+  const scheduler = createScheduler(context);
+  scheduler.start();
+
+  const disposable = vscode.commands.registerCommand(
+    "masiwei-chime.chime",
+    () => {
+      const notice = createNotice();
+      notice.show();
+    }
+  );
+
+  context.subscriptions.push(disposable);
+}
+
+// this method is called when your extension is deactivated
+export function deactivate(): void {
+  // TODO
+}
