@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/artoriaschan/masiwei-chime/compare/v0.0.2...v0.0.3) (2020-11-17)
+
+
+### Features
+
+* 修改配置，丰富文档 ([f5e299f](https://github.com/artoriaschan/masiwei-chime/commit/f5e299f5401252b847f62777cb334ede40294440))
+
 ### 0.0.2 (2020-11-16)
 
 
