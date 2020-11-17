@@ -9,6 +9,11 @@
 	"categories": [
 		"Other"
 	],
+	"homepage": "https://github.com/artoriaschan/masiwei-chime/blob/master/README.md",
+	"repository": {
+			"type": "git",
+			"url": "https://github.com/artoriaschan/masiwei-chime.git"
+	},
 	"activationEvents": [
 		"onCommand:masiwei-chime.chime",
 		"*"
@@ -118,5 +123,6 @@
 		"cron": "^1.8.2",
 		"dayjs": "^1.9.6",
 		"random": "^2.2.0"
-	}
+	},
+	"license": "WTFPL"
 }
