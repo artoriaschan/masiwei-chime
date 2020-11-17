@@ -2,7 +2,7 @@
 	"name": "masiwei-chime",
 	"displayName": "Masiwei-Chime",
 	"description": "马思唯整点报时",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"publisher": "ArtoriasChan",
 	"icon": "./assets/logo.jpeg",
 	"engines": {
@@ -12,13 +12,13 @@
 		"Other"
 	],
 	"keywords": [
-			"马思唯",
-			"报时"
+		"马思唯",
+		"报时"
 	],
 	"homepage": "https://github.com/artoriaschan/masiwei-chime/blob/master/README.md",
 	"repository": {
-			"type": "git",
-			"url": "https://github.com/artoriaschan/masiwei-chime.git"
+		"type": "git",
+		"url": "https://github.com/artoriaschan/masiwei-chime.git"
 	},
 	"activationEvents": [
 		"onCommand:masiwei-chime.chime",
