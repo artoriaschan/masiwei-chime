@@ -3,11 +3,17 @@
 	"displayName": "Masiwei-Chime",
 	"description": "马思唯整点报时",
 	"version": "0.0.3",
+	"publisher": "ArtoriasChan",
+	"icon": "./assets/logo.jpeg",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
 	"categories": [
 		"Other"
+	],
+	"keywords": [
+			"马思唯",
+			"报时"
 	],
 	"homepage": "https://github.com/artoriaschan/masiwei-chime/blob/master/README.md",
 	"repository": {
