@@ -1,7 +1,5 @@
 import vscode from "vscode";
 import { CronJob } from "cron";
-import { Configuration } from "../config";
-import type { Config } from "../config";
 import { createNotice } from "../components/notice";
 
 let instance: Scheduler;
@@ -10,40 +8,26 @@ class Scheduler {
   private timer: NodeJS.Timeout | null = null;
   private job: CronJob | null = null;
   public constructor(private context: vscode.ExtensionContext) {
-    const config = (Configuration.getConfiguration() as unknown) as Config;
-    if (config.timing === "clock") {
-      this.job = new CronJob(
-        "0 * 9-22 * * *",
-        () => {
-          const notice = createNotice();
-          notice.show();
-        },
-        null,
-        true,
-        "Asia/Shanghai"
-      );
-    }
     instance = this;
   }
 
   start(): void {
-    if (this.job) {
-      this.job.start();
-    } else {
-      this.timer = setInterval(() => {
-        console.log("start chime");
+    this.job = new CronJob(
+      "0 0 9-22 * * *",
+      () => {
         const notice = createNotice();
         notice.show();
-      }, 1000 * 10);
-    }
+      },
+      null,
+      true,
+      "Asia/Shanghai"
+    );
+
+    this.job.start();
   }
 
   stop(): void {
-    if (this.job) {
-      this.job.stop();
-    } else {
-      this.timer && clearInterval(this.timer);
-    }
+    this.job && this.job.stop();
   }
 
   static getScheduler(): Scheduler {

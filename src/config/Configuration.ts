@@ -4,7 +4,6 @@ export interface Config {
   customTemplateArray: string[];
   name: string;
   timeFormat: string;
-  timing: "clock" | "random";
   autoSpeech: boolean;
   extra?: {
     before: string;
