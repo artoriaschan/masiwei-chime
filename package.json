@@ -2,7 +2,7 @@
 	"name": "masiwei-chime",
 	"displayName": "Masiwei-Chime",
 	"description": "马思唯整点报时",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
@@ -18,7 +18,8 @@
 		"commands": [
 			{
 				"command": "masiwei-chime.chime",
-				"title": "Give The Correct Time"
+				"category": "Masiwei Chime",
+				"title": "Give the Correct Time"
 			}
 		],
 		"configuration": {
@@ -34,11 +35,6 @@
 					"type": "string",
 					"default": "A hh:mm",
 					"description": "报时时间格式"
-				},
-				"msw.timing": {
-					"type": "string",
-					"default": "clock",
-					"description": "报时时机：整点/随机"
 				},
 				"msw.autoSpeech": {
 					"type": "boolean",
