@@ -2,7 +2,7 @@
 	"name": "masiwei-chime",
 	"displayName": "Masiwei-Chime",
 	"description": "马思唯整点报时",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"publisher": "ArtoriasChan",
 	"icon": "assets/logo.jpeg",
 	"engines": {
@@ -68,11 +68,11 @@
 					},
 					"description": "自定义模板"
 				},
-				"msw.reminder":{
-					"type":"object",
-					"default":{
+				"msw.reminder": {
+					"type": "object",
+					"default": {
 						"only": false,
-						"times":[]
+						"times": []
 					},
 					"description": "自定义定时提醒"
 				}

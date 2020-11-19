@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/artoriaschan/masiwei-chime/compare/v0.0.5...v0.0.6) (2020-11-19)
+
+
+### Features
+
+* 实现自定义模板，增加定时提醒功能 ([3644948](https://github.com/artoriaschan/masiwei-chime/commit/3644948181388e7e0cd2030c235cf444b2e2976b))
+
 ### [0.0.5](https://github.com/artoriaschan/masiwei-chime/compare/v0.0.4...v0.0.5) (2020-11-17)
 
 ### [0.0.4](https://github.com/artoriaschan/masiwei-chime/compare/v0.0.3...v0.0.4) (2020-11-17)
