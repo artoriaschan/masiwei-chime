@@ -6,13 +6,14 @@ import vscode from "vscode";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 
 import { createScheduler } from "./utils";
+import type { Scheduler } from "./utils";
 import { createNotice } from "./components/notice";
 
 dayjs.locale("zh-cn");
 dayjs.extend(localizedFormat);
-
+let scheduler: Scheduler;
 export function activate(context: vscode.ExtensionContext): void {
-  const scheduler = createScheduler(context);
+  scheduler = createScheduler(context);
   scheduler.start();
 
   const disposable = vscode.commands.registerCommand(
@@ -30,3 +31,13 @@ export function activate(context: vscode.ExtensionContext): void {
 export function deactivate(): void {
   // TODO
 }
+// 监听修改配置
+vscode.workspace.onDidChangeConfiguration(function (event) {
+  const configList = ["msw.reminder"];
+  const affected = configList.some((item) => event.affectsConfiguration(item));
+  console.log("onDidChangeConfiguration -> affected: ", affected);
+  if (affected) {
+    // do some thing ...
+    scheduler.restart();
+  }
+});

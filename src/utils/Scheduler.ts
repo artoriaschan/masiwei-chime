@@ -19,21 +19,9 @@ class Scheduler {
   load(): void {
     const { reminder } = this.config;
     if (reminder.only && reminder.times.length > 0) {
-      for (const time of reminder.times) {
-        const [hours, minutes] = time.split(":");
-        const job = new CronJob(
-          `0 ${minutes} ${hours} * * *`,
-          () => {
-            const notice = createNotice();
-            notice.show();
-          },
-          null,
-          true,
-          "Asia/Shanghai"
-        );
-        this.jobs.push(job);
-      }
+      this.jobs = this.createJobWithReminder(reminder);
     } else {
+      this.jobs = this.createJobWithReminder(reminder);
       const job = new CronJob(
         "0 0 9-22 * * *",
         () => {
@@ -44,12 +32,30 @@ class Scheduler {
         true,
         "Asia/Shanghai"
       );
-
       this.jobs.push(job);
     }
   }
+  createJobWithReminder(reminder: Config["reminder"]): CronJob[] {
+    const jobs = [];
+    for (const time of reminder.times) {
+      const [hours, minutes] = time.split(":");
+      const job = new CronJob(
+        `0 ${minutes} ${hours} * * *`,
+        () => {
+          const notice = createNotice();
+          notice.show();
+        },
+        null,
+        true,
+        "Asia/Shanghai"
+      );
+      jobs.push(job);
+    }
+    return jobs;
+  }
   start(): void {
     this.load();
+    console.log(this.jobs);
     for (const job of this.jobs) {
       job.start();
     }
@@ -59,6 +65,13 @@ class Scheduler {
     for (const job of this.jobs) {
       job.stop();
     }
+  }
+
+  restart(): void {
+    this.stop();
+    this.jobs = [];
+    this.config = (Configuration.getConfiguration() as unknown) as Config;
+    this.start();
   }
 
   static getScheduler(): Scheduler {
