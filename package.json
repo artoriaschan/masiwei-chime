@@ -60,10 +60,21 @@
 					},
 					"description": "报时模板追加首部和尾部增加文字"
 				},
-				"msw.customTemplateArray": {
-					"type": "array",
-					"default": [],
+				"msw.customTemplate": {
+					"type": "object",
+					"default": {
+						"only": false,
+						"tmpls": []
+					},
 					"description": "自定义模板"
+				},
+				"msw.reminder":{
+					"type":"object",
+					"default":{
+						"only": false,
+						"times":[]
+					},
+					"description": "自定义定时提醒"
 				}
 			}
 		}
