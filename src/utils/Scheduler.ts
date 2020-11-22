@@ -23,7 +23,7 @@ class Scheduler {
     } else {
       this.jobs = this.createJobWithReminder(reminder);
       const job = new CronJob(
-        "0 0 9-22 * * *",
+        "0 0 9-22 * * MON-FRI",
         () => {
           const notice = createNotice();
           notice.show();
@@ -40,7 +40,7 @@ class Scheduler {
     for (const time of reminder.times) {
       const [hours, minutes] = time.split(":");
       const job = new CronJob(
-        `0 ${minutes} ${hours} * * *`,
+        `0 ${minutes} ${hours} * * MON-FRI`,
         () => {
           const notice = createNotice();
           notice.show();
