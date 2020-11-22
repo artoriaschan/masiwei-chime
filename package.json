@@ -2,7 +2,7 @@
 	"name": "masiwei-chime",
 	"displayName": "Masiwei-Chime",
 	"description": "马思唯整点报时",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"publisher": "ArtoriasChan",
 	"icon": "assets/logo.jpeg",
 	"engines": {

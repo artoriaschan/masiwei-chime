@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/artoriaschan/masiwei-chime/compare/v0.0.7...v0.0.8) (2020-11-22)
+
+
+### Features
+
+* 优化默认整点报时的默认时间为周一至周五 ([adc2ca3](https://github.com/artoriaschan/masiwei-chime/commit/adc2ca3b1e7515431a91132a1847f74e8c2933dc))
+
 ### [0.0.7](https://github.com/artoriaschan/masiwei-chime/compare/v0.0.6...v0.0.7) (2020-11-19)
 
 
